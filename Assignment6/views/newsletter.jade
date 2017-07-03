@@ -1,0 +1,11 @@
+extends layout
+block content
+    h1=Welcome
+    form(name="registration", method="post" action='/newsletter')
+        label Email:
+        input(type="text", name="email")
+        input(type="submit" value="Subscribe")
+        input(type="hidden" name="_csrf" value=csrftoken)
+        if error
+            label=error
+
