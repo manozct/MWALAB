@@ -1,0 +1,33 @@
+Book{
+	_id:"",
+	isbn_number:"",
+	authors:[],
+	keywords:[],
+	available:"",
+	copies:[],
+	student:[]
+
+}
+Student{
+		_id:"",
+		name:"",
+		book_borrowed:[],
+		return_date:[
+			{
+				book:"",
+				date:""
+			}
+		]
+}
+Author{
+		_id:"",
+		name:"",
+		books:[]
+
+}
+Librarian{
+		_id:"",
+		username:"",
+		password:""
+}
+ The above NoSQL design model is to manage Library. In this design model I consider many to many relation.
