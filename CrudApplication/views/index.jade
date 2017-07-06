@@ -1,0 +1,55 @@
+extends layout
+
+block content
+  h1 Location Map
+  form#crudForm(action='/crud', method='post')
+        fieldset.gllpLatlonPicker
+            input.gllpSearchField(type='text')
+            input.gllpSearchButton(type='button', value='search')
+            .gllpMap Google Maps
+            input.gllpLatitude(type='hidden', value='20' form='crudForm' name='lat')
+            input.gllpLongitude(type='hidden', value='20' form='crudForm' name='long')
+            input.gllpZoom(type='hidden', value='3')
+        | Name:
+        br
+        input(type='text', name='name', placeholder='Name')
+        br
+        |   Category:
+        br
+        input(type='text', name='category', placeholder='Category')
+        br
+        br
+        input(type='submit', value='Submit')
+  for data in locationData
+        p: !{ data.name }
+            a.editBtn(data-toggle='modal', data-target='#myModal', name=JSON.stringify(data)) Edit
+            a(href='/crud/delete/#{data._id}') Delete
+
+  #myModal.modal.fade(role='dialog')
+    .modal-dialog
+      // Modal content
+      .modal-content
+        .modal-header
+          button.close(type='button', data-dismiss='modal') ×
+          h4.modal-title Modal Header
+        .modal-body
+              form(action='/crud/update', method='post')
+                input#editId(type='hidden', name='id')
+                .form-group
+                  label.col-2.col-form-label(for='editName') Name
+                  .col-10
+                    input#editName.form-control(type='text', name='name')
+                .form-group
+                  label.col-2.col-form-label(for='editCategory') Category
+                  .col-10
+                    input#editCategory.form-control(type='text', name='category')
+                .form-group
+                  label.col-2.col-form-label(for='editLongitude') Longitude
+                  .col-10
+                    input#editLongitude.form-control(type='text', name='longitude')
+                .form-group
+                  label.col-2.col-form-label(for='editLatitude') Latitude
+                  .col-10
+                    input#editLatitude.form-control(type='text', name='latitude')
+                .form-group
+                    button.btn.btn-primary(type='submit') Update
