@@ -18,7 +18,6 @@ router.get('/',function (req,res,next) {
         //console.log(data);
 
     });
-
     //2 find all the zip codes with population less than 1000
     db.zips.aggregate([{$match:{pop:{$lt:1000}}},{$project:{_id:1}}],function (err,data) {
         //console.log(data);
