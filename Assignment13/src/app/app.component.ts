@@ -6,12 +6,6 @@ import {Component} from "@angular/core";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  private ComponetCounterValue: number;
-
-  updateValue(value) {
-    this.ComponetCounterValue = value;
-
-
-  }
-
+  title = 'app';
+  private names: string[] = ['Manoj Chaudhary', 'Zamuna Ghale', 'Sulav Neupane', 'Kshitz Poudel'];
 }

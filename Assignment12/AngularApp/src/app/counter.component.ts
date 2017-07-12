@@ -12,11 +12,11 @@ import {Component, EventEmitter, Input, OnInit, Output} from "@angular/core";
 })
 export class CounterComponent implements OnInit {
   @Input('ComponetCounterValue') private counterValue: number;
-   @Output() counterChange:EventEmitter<number>;
+  @Output() counterChange: EventEmitter<number>;
 
 
   constructor() {
-    this.counterChange=new EventEmitter();
+    this.counterChange = new EventEmitter();
   }
 
   increment() {
