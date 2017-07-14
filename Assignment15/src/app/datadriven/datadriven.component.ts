@@ -33,6 +33,7 @@ export class DatadrivenComponent {
 
 
     );
+    console.log(this.user.name);
 
     this.httpService.getPost().subscribe(
      response => {

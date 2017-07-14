@@ -20,8 +20,8 @@
     <small *ngIf="!myForm.controls['post'].valid" class="text-danger">Minimum Length 10</small>
   </div>
 
-  <button type="submit" class="btn btn-primary">Submit</button>
-  <button type="submit" class="btn btn-primary" (click)="onGet()">Get Data</button>
+  <button type="submit" class="btn btn-primary"  [disabled]="!myForm.valid">Submit</button>
+  <button type="button" class="btn btn-primary" (click)="onGet()">Get Data</button>
 
 </form>
 
